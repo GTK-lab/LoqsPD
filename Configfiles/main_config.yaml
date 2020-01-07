@@ -1,0 +1,166 @@
+#Genome version
+genome_vers : 'dmel-all-chromosome-r6.22'
+M21017
+#Exon merge list
+ft_list : ['mRNA','rRNA','tRNA','snRNA','snoRNA','pseudogene','ncRNA','transposable_element','miRNA']
+
+#Modified naming for bedfile features 
+bed_ft_list : ['mRNA_exon','rRNA_exon','tRNA_exon','snRNA_exon','snoRNA_exon','pseudogene_exon','ncRNA_exon','transposable_element','miRNA','hpRNA']
+
+#Types of exons to be intersected for the creation of the exonic-antisense features
+antiexon_ft_list : ['ncRNA','tRNA','snoRNA','pseudogene']
+
+#Features taken from published results / input as .bed file format
+citation_ft_list : ['01_okamura','02_czech','03_kawamura','04_ghildiyal', 'encodecisnat']
+
+#Downloaded input files which are in their final fasta format and can be immediately converted to bowtie index (i.e no need for modification) 
+downloaded_fasta_list : ['dmel-all-chromosome-r6.22','spikeinset01','M21017']
+
+#Indexes not involved in sequential mapping 
+nonseq_index_list : ['dmel-all-chromosome-r6.22', 'spikeinset01']
+
+#Sequential mapping list used for both Okamura and GSE37433, named as '21filter'
+21filter_index_list : [rRNARM,
+                rRNA_exon_merge,
+                M21017,
+                RNARM,
+                tRNA_exon_merge,
+                snRNA_exon_merge,
+                snoRNA_exon_merge,
+                miRNA_merge,
+                hpRNA_merge,
+                transposable_element,
+                encodecisnat,
+                01_okamura,
+                02_czech,
+                03_kawamura,
+                04_ghildiyal,
+                antiexon_mRNA_mRNA,
+                antiexon_mRNA_pseudogene,
+                antiexon_mRNA_ncRNA,
+                antiexon_mRNA_tRNA,
+                antiexon_mRNA_snoRNA
+                ]
+#Multi-sequential mapping list used for both Okamura and GSE37433, runID named as '21filter_multi'
+21filter_multi_index_list : [rRNARM,
+                rRNA_exon_merge,
+                M21017,
+                RNARM,
+                tRNA_exon_merge,
+                snRNA_exon_merge,
+                snoRNA_exon_merge,
+                miRNA_merge,
+                hpRNA_merge,
+                transposable_element,
+                encodecisnat,
+                01_okamura,
+                02_czech,
+                03_kawamura,
+                04_ghildiyal,
+                antiexon_mRNA_mRNA,
+                antiexon_mRNA_pseudogene,
+                antiexon_mRNA_ncRNA,
+                antiexon_mRNA_tRNA,
+                antiexon_mRNA_snoRNA
+                ]
+
+
+#List of siRNA-related indexes which length filter is applied to
+siRNA_index_list : [hpRNA_merge,
+                transposable_element,
+                01_okamura,
+                02_czech,
+                03_kawamura,
+                04_ghildiyal,
+                encodecisnat,
+                antiexon_mRNA_mRNA,
+                antiexon_mRNA_pseudogene,
+                antiexon_mRNA_ncRNA,
+                antiexon_mRNA_tRNA,
+                antiexon_mRNA_snoRNA]
+
+
+
+#General classification/ names for the various bowtie indexes
+index_dict : {dmel-all-chromosome-r6.22 : 'Genome', 
+                rRNARM : 'Background',
+                rRNA_exon_merge : 'Background',
+                M21017 : 'Background',
+                RNARM : 'Background',
+                pseudogene_exon_merge: 'Pseudogene',
+                ncRNA_exon_merge: 'ncRNA',
+                tRNA_exon_merge : 'Background',
+                snRNA_exon_merge : 'Background',
+                snoRNA_exon_merge: 'Background',
+                miRNA_merge: 'miRNA',
+                hpRNA_merge: 'hpRNA',
+                LTRRM: 'RetroTransposon',
+                LINERM: 'RetroTransposon',
+                DNARM: 'DNATransposon',
+                SatelliteRM: 'Others',
+                Low_complexityRM: 'Others',
+                RCRM: 'Others',
+                Simple_repeatRM: 'Others',
+                OtherRM: 'Others',
+                UnknownRM: 'Others',
+                transposable_element: 'Transposon',
+                ARTEFACTRM: 'Others',
+                01_okamura: 'Other',
+                02_czech: 'Other',
+                03_kawamura: 'Other',
+                04_ghildiyal: 'Other',
+                CR14033: 'thickveins',
+                CG17046: 'klarsicht',
+                antiexon_mRNA_mRNA: 'Exonic Antisense',
+                antiexon_mRNA_ncRNA: 'Exonic Antisense',
+                antiexon_mRNA_tRNA: 'Exonic Antisense',
+                antiexon_mRNA_snoRNA: 'Exonic Antisense',
+                antiexon_mRNA_pseudogene: 'Exonic Antisense',
+                encodecisnat: 'Cis Nat',
+                spikeinset01: 'Spikein'}
+  
+                
+#Okamura Library pre-processing parameters and library conditions
+adapter : 'TGGAATTCTCGGGTGCCAAGG'
+qualscore : 'Q33'
+#min_length : 18
+#max_length : 30
+
+Okamura_lib_dict : {B133: 'GFP_Control_rep1',
+                    B134 : 'LoqsPA_rep1',
+                    B135 : 'LoqsPB_rep1',
+                    B136 : 'LoqsPD_rep1',
+                    B137 : 'GFP_Control_rep2',
+                    B138 : 'LoqsPA_rep2',
+                    B139 : 'LoqsPB_rep2',
+                    B140 : 'LoqsPD_rep2', 
+                    B141 : 'GFP_Control_rep3', 
+                    B142 : 'LoqsPA_rep3',
+                    B143 : 'LoqsPB_rep3',
+                    B144 : 'LoqsPD_rep3',
+                  }
+
+
+#GSE37443 library conditions
+GSE37443Head_lib_dict : {GSM919400: 'WT_Control', 
+                        GSM919401: 'LoqsPA' , 
+                        GSM919402: 'LoqsPB', 
+                        GSM919403: 'LoqsPA+LoqsPB', 
+                        GSM919404: 'LoqsPA+LoqsPD', 
+                        GSM919405: 'LoqsPB+LoqsPD', 
+                        GSM919406: 'LoqsPA+LoqsPB+LoqsPD', 
+                        GSM919407: 'LoqsKO/CyO' ,
+                        GSM919408: 'loqsf00791', 
+                        GSM919409: 'loqsf00791/CyO'}
+
+GSE37443Ovary_lib_dict : {GSM919410: 'WT_Control', 
+                        GSM919411: 'LoqsPA' , 
+                        GSM919412: 'LoqsPB', 
+                        GSM919413: 'LoqsPA+LoqsPB', 
+                        GSM919414: 'LoqsPA+LoqsPD', 
+                        GSM919415: 'LoqsPB+LoqsPD', 
+                        GSM919416: 'LoqsPA+LoqsPB+LoqsPD', 
+                        GSM919417: 'LoqsKO/CyO' ,
+                        GSM919418: 'loqsf00791', 
+                        GSM919419: 'loqsf00791/CyO'}
+
